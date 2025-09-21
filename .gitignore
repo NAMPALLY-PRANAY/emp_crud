@@ -1,0 +1,11 @@
+# .gitignore (basic for Maven/Java)
+target/
+*.class
+*.log
+*.iml
+.idea/
+.vscode/
+.DS_Store
+.gradle/
+.settings/
+*.jar
