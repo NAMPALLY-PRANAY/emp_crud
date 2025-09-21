@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # .gitignore (basic for Maven/Java)
 target/
 *.class
@@ -9,3 +10,22 @@ target/
 .gradle/
 .settings/
 *.jar
+=======
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+# https://maven.apache.org/wrapper/#usage-without-binary-jar
+.mvn/wrapper/maven-wrapper.jar
+
+# Eclipse m2e generated files
+# Eclipse Core
+.project
+# JDT-specific (Eclipse Java Development Tools)
+.classpath
+>>>>>>> 37de149c7e851b9e9586955980c8914d708be61a
