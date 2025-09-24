@@ -16,13 +16,23 @@ COPY src ./src
 RUN mvn clean package -DskipTests
 
 # Stage 2: Create runtime image
-FROM tomcat:9.0-jdk21
+FROM openjdk:21-jre-slim
 
 # Set working directory
-WORKDIR /usr/local/tomcat/webapps/
+WORKDIR /app
 
-# Copy the WAR file to Tomcat's webapps directory
-COPY --from=build /app/target/employeedb.war ./employeedb.war
+# Copy the built JAR from build stage
+COPY --from=build /app/target/employeedb.war app.war
 
-# Expose the Tomcat port
+# Expose the application port
 EXPOSE 8090
+
+# Set environment variables for better JVM performance in containers
+ENV JAVA_OPTS="-Xmx512m -Xms256m"
+
+# Create a non-root user for security
+RUN addgroup --system spring && adduser --system spring --ingroup spring
+USER spring:spring
+
+# Run the application
+ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.war"]
