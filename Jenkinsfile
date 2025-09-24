@@ -30,7 +30,9 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building the application...'
-                bat 'mvn clean package -DskipTests'
+                dir('crud') { // Navigate to the subdirectory containing the pom.xml
+                    bat 'mvn clean package -DskipTests'
+                }
             }
         }
         stage('Build Docker Image') {
