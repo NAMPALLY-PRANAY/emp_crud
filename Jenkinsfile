@@ -1,8 +1,8 @@
 pipeline {
     agent any
     tools {
-        maven 'Maven 3.9.4' // Ensure Maven is configured in Jenkins
-        jdk 'JDK 21'        // Ensure JDK 21 is configured in Jenkins
+        maven 'Maven' // Corrected Maven tool name
+        jdk 'JDK21'   // Corrected JDK tool name
     }
     environment {
         DOCKER_IMAGE = 'employeedb:latest'
